@@ -1,0 +1,42 @@
+
+
+        String name = "Lakshmi Siv test tangen IN";
+        String reservedName = null;
+        String lastName = null;
+        String firstName = null;
+
+        String[] formatList = name.split( " " );
+        System.out.println( formatList.length );
+
+        if ( formatList.length == 1 ) {
+            reservedName = ","+formatList[ 0 ];
+        }
+        else if ( formatList.length == 2 ) {
+            reservedName = formatList[ 1 ] + "," + formatList[ 0 ];
+        }
+        else {
+            if ( formatList[ formatList.length - 1 ].length() <= 2 ) {
+                lastName = formatList[ formatList.length - 2 ] + " " + formatList[ formatList.length - 1 ] + ",";
+                for ( int i = 0; i < formatList.length - 2; i++ ) {
+                    if(i == 0) {
+                    firstName = formatList[ i ];
+                    } else {
+                        firstName = firstName+" "+formatList[ i ];
+                    }
+                }
+                reservedName = lastName + firstName;
+            }
+            else {
+                lastName = formatList[ formatList.length - 1 ] + ",";
+                for ( int i = 0; i < formatList.length-1; i++ ) {
+                    if(i == 0) {
+                        firstName = formatList[ i ];
+                        } else {
+                            firstName = firstName+" "+formatList[ i ];
+                        }
+                }
+                reservedName = lastName + firstName;
+            }
+        }
+        System.out.println( reservedName );
+    
